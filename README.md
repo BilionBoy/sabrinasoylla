@@ -12,7 +12,7 @@ Envie esta pasta ao GitHub e importe o repositório. O arquivo `vercel.json` def
 
 ## Contato
 
-Edite `dist/config.js` para cadastrar o WhatsApp real (país + DDD + número) e o CRO confirmado. WhatsApp configurado com o número informado: +55 69 9219-8982. Instagram do modelo: @drasabrinasoylla. CRO não exibido até confirmação.
+Edite `dist/config.js` para cadastrar o WhatsApp real (país + DDD + número) e o CRO confirmado. WhatsApp configurado com o número informado: +55 69 99269-2567. Instagram do modelo: @drasabrinasoylla. CRO não exibido até confirmação.
 
 ## Imagens
 
@@ -31,3 +31,7 @@ Os blocos de clínica e filosofia foram adaptados com conteúdo editorial: não 
 ## Verificação
 
 Checagem de sintaxe JavaScript, referências locais e servidor HTTP. Navegador integrado indisponível nesta sessão; revisão visual em navegador real ainda necessária.
+
+## Revisão da cliente — 11/10/2026
+
+Telefone atualizado, título com linhas separadas e novos casos em destaque. Clínica atualizada com as duas fotos originais recebidas. O filtro Sorriso gengival está associado exclusivamente ao registro IMG_7456, indicado no briefing. Fotos de filosofia e conteúdos ainda utilizam recortes da referência.
