@@ -21,9 +21,10 @@ function setFilter(value){filter=value;limit=3;document.querySelectorAll('[data-
 document.querySelectorAll('[data-filter]').forEach(b=>b.addEventListener('click',()=>setFilter(b.dataset.filter)));
 document.querySelectorAll('[data-treatment]').forEach(a=>a.addEventListener('click',()=>setFilter(a.dataset.treatment)));
 more.addEventListener('click',()=>{const previous=limit;limit+=6;render();gallery.children[previous]?.focus({preventScroll:true});});
-function updateImage(){const items=filtered();const item=items[index];document.getElementById('lightbox-title').textContent=item.title;const image=document.getElementById('lightbox-image');image.src=item.src;image.alt='Comparação completa — '+item.title;document.getElementById('lightbox-count').textContent=(index+1)+' / '+items.length;document.getElementById('previous-image').disabled=items.length<2;document.getElementById('next-image').disabled=items.length<2;}
-function openImage(i,button){index=i;opener=button;updateImage();dialog.showModal();document.body.classList.add('modal-open');}
-function next(delta){index=(index+delta+filtered().length)%filtered().length;updateImage();}
+let lightboxItems=[];
+function updateImage(){const items=lightboxItems;const item=items[index];document.getElementById('lightbox-title').textContent=item.title;const image=document.getElementById('lightbox-image');image.src=item.src;image.alt='Comparação completa — '+item.title;document.getElementById('lightbox-count').textContent=(index+1)+' / '+items.length;document.getElementById('previous-image').disabled=items.length<2;document.getElementById('next-image').disabled=items.length<2;}
+function openImage(i,button,items=filtered()){lightboxItems=items;index=i;opener=button;updateImage();dialog.showModal();document.body.classList.add('modal-open');}
+function next(delta){index=(index+delta+lightboxItems.length)%lightboxItems.length;updateImage();}
 document.getElementById('close-lightbox').addEventListener('click',()=>dialog.close());
 document.getElementById('previous-image').addEventListener('click',()=>next(-1));
 document.getElementById('next-image').addEventListener('click',()=>next(1));
@@ -61,3 +62,63 @@ document.getElementById('chat-later').addEventListener('click',()=>setChat(false
 chatPanel.querySelector('[data-contact]').addEventListener('click',()=>setChat(false));
 document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!chatPanel.hidden)setChat(false);});
 document.addEventListener('click',e=>{if(!chatPanel.hidden&&!chatPanel.contains(e.target)&&!chatToggle.contains(e.target))setChat(false,false);});
+
+// Galeria horizontal independente: filtros locais, toque e navegação por teclado.
+const protocolTrack=document.getElementById('protocol-track');
+const protocolPrev=document.getElementById('protocol-prev');
+const protocolNext=document.getElementById('protocol-next');
+const protocolOrder=['6782','4928','1439','7840','6790','9483','7456','9975'];
+const protocolPhotos=protocolOrder.map(id=>photos.find(photo=>photo.src.includes(id))).filter(Boolean);
+const motionPreference=window.matchMedia('(prefers-reduced-motion: reduce)');
+let protocolItems=[];
+function updateProtocolControls(){
+ const max=Math.max(0,protocolTrack.scrollWidth-protocolTrack.clientWidth);
+ protocolPrev.disabled=protocolTrack.scrollLeft<=2;
+ protocolNext.disabled=protocolTrack.scrollLeft>=max-2;
+}
+function renderProtocols(category='todos'){
+ protocolItems=protocolPhotos.filter(item=>category==='todos'||item.category===category);
+ protocolTrack.replaceChildren();
+ protocolItems.forEach((item,i)=>{
+  const card=document.createElement('button');card.type='button';card.className='protocol-card';
+  card.setAttribute('aria-label','Ampliar comparação de '+item.title+', '+(i+1)+' de '+protocolItems.length);
+  const frame=document.createElement('div');frame.className='protocol-image';
+  const img=document.createElement('img');img.src=item.src;img.alt='Comparação completa de '+item.title;img.loading='lazy';img.decoding='async';img.width=600;img.height=800;
+  frame.append(img);
+  const caption=document.createElement('div');caption.className='protocol-caption';
+  const title=document.createElement('h3');title.textContent=item.title;
+  const label=document.createElement('span');label.textContent='Ver comparação ↗';caption.append(title,label);
+  card.append(frame,caption);card.addEventListener('click',()=>openImage(i,card,protocolItems));protocolTrack.append(card);
+ });
+ document.querySelectorAll('[data-protocol-filter]').forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.protocolFilter===category)));
+ document.getElementById('protocol-status').textContent=protocolItems.length+' comparações disponíveis';
+ protocolTrack.scrollLeft=0;requestAnimationFrame(updateProtocolControls);
+}
+function moveProtocols(direction){
+ const card=protocolTrack.firstElementChild;if(!card)return;
+ const gap=parseFloat(getComputedStyle(protocolTrack).columnGap)||0;
+ protocolTrack.scrollBy({left:direction*(card.getBoundingClientRect().width+gap),behavior:motionPreference.matches?'instant':'smooth'});
+}
+protocolPrev.addEventListener('click',()=>moveProtocols(-1));protocolNext.addEventListener('click',()=>moveProtocols(1));
+protocolTrack.addEventListener('scroll',updateProtocolControls,{passive:true});
+protocolTrack.addEventListener('keydown',event=>{
+ if(event.target!==protocolTrack)return;
+ if(event.key==='ArrowRight'||event.key==='ArrowLeft'){event.preventDefault();moveProtocols(event.key==='ArrowRight'?1:-1);}
+});
+document.querySelectorAll('[data-protocol-filter]').forEach(button=>button.addEventListener('click',()=>renderProtocols(button.dataset.protocolFilter)));
+window.addEventListener('resize',updateProtocolControls,{passive:true});
+renderProtocols();
+// Parallax limitado ao retrato, sem movimentar ou distorcer comparações clínicas.
+const heroPortrait=document.querySelector('.hero-image img');
+const parallaxDesktop=window.matchMedia('(min-width: 801px)');
+let parallaxFrame=0;
+function updateParallax(){
+ parallaxFrame=0;
+ if(motionPreference.matches||!parallaxDesktop.matches){heroPortrait.style.transform='';return;}
+ const bounds=document.getElementById('inicio').getBoundingClientRect();
+ const offset=Math.max(-12,Math.min(12,-bounds.top*.035));
+ heroPortrait.style.transform='translateY('+offset+'px) scale(1.055)';
+}
+function requestParallax(){if(!parallaxFrame)parallaxFrame=requestAnimationFrame(updateParallax);}
+window.addEventListener('scroll',requestParallax,{passive:true});
+motionPreference.addEventListener('change',requestParallax);parallaxDesktop.addEventListener('change',requestParallax);requestParallax();
