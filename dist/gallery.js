@@ -5,7 +5,7 @@ window.SABRINA_GALLERY = [
     "category": "harmonizacao"
   },
   {
-    "src": "assets/photos/IMG_9207.webp",
+    "src": "assets/photos/IMG_5962.JPEG",
     "title": "Harmonização facial",
     "category": "harmonizacao"
   },
@@ -48,11 +48,6 @@ window.SABRINA_GALLERY = [
     "src": "assets/photos/IMG_7839.JPG%20%281%29.jpeg",
     "title": "Botox",
     "category": "botox"
-  },
-  {
-    "src": "assets/photos/IMG_5962.JPEG",
-    "title": "Harmonização facial",
-    "category": "harmonizacao"
   },
   {
     "src": "assets/photos/IMG_1439%20%281%29.JPEG",
