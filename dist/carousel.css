@@ -23,3 +23,13 @@ main p,.hero-description,.treatment p,.section-heading p,.about-copy p:not(.eyeb
 @media(max-width:1000px){.protocol-track{grid-auto-columns:calc((100% - 24px)/2)}#tratamentos{width:calc(100% - 48px)}}
 @media(max-width:540px){#tratamentos{width:calc(100% - 36px);padding-block:34px}.protocol-track{grid-auto-columns:88%;gap:16px}.protocol-caption h3{font-size:26px}.protocol-filters{gap:5px 16px}.protocol-filters button{font-size:11px}.protocol-toolbar{gap:12px}.protocol-toolbar p{font-size:11px;max-width:200px}.protocol-arrows{gap:6px}.protocol-image{aspect-ratio:3/4}.protocol-caption span{font-size:11px}.hero-image img{will-change:auto}}
 @media(prefers-reduced-motion:reduce){.hero-image img{transform:none!important;will-change:auto}.protocol-track{scroll-behavior:auto}}
+
+/* Fotos atualizadas e comparações sem faixas laterais — novembro/2026. */
+.protocol-image { aspect-ratio: 1 / 1.12; }
+.protocol-image img { object-fit: cover; object-position: center 62%; }
+.clinic-photos--single { display:block; overflow:hidden; }
+.clinic-photos--single img { width:100%; height:100%; max-height:640px; object-fit:cover; object-position:center 62%; }
+@media(max-width:540px) {
+  .protocol-image { aspect-ratio:1 / 1.12; }
+  .clinic-photos--single img { height:auto; max-height:none; }
+}

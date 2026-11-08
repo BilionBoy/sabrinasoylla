@@ -1,5 +1,15 @@
 window.SABRINA_GALLERY = [
   {
+    "src": "assets/photos/IMG_9208.webp",
+    "title": "Harmonização facial",
+    "category": "harmonizacao"
+  },
+  {
+    "src": "assets/photos/IMG_9207.webp",
+    "title": "Harmonização facial",
+    "category": "harmonizacao"
+  },
+  {
     "src": "assets/photos/IMG_0710%20%281%29.JPEG",
     "title": "Harmonização facial",
     "category": "harmonizacao"
@@ -15,7 +25,7 @@ window.SABRINA_GALLERY = [
     "category": "harmonizacao"
   },
   {
-    "src": "assets/photos/IMG_7840.JPG%20%281%29.jpeg",
+    "src": "assets/photos/IMG_8542.webp",
     "title": "Botox",
     "category": "botox"
   },
@@ -25,7 +35,7 @@ window.SABRINA_GALLERY = [
     "category": "sorriso"
   },
   {
-    "src": "assets/photos/IMG_9483%20%281%29.PNG",
+    "src": "assets/photos/IMG_9209.webp",
     "title": "Rinomodelação",
     "category": "rinomodelacao"
   },
@@ -96,7 +106,7 @@ window.SABRINA_GALLERY = [
   },
   {
     "src": "assets/photos/IMG_6782.JPEG",
-    "title": "Harmonização facial",
+    "title": "Full face estratégico",
     "category": "harmonizacao"
   },
   {

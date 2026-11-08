@@ -67,7 +67,7 @@ document.addEventListener('click',e=>{if(!chatPanel.hidden&&!chatPanel.contains(
 const protocolTrack=document.getElementById('protocol-track');
 const protocolPrev=document.getElementById('protocol-prev');
 const protocolNext=document.getElementById('protocol-next');
-const protocolOrder=['6782','4928','1439','7840','6790','9483','7456','9975'];
+const protocolOrder=['9207','6782','1439','8542','6790','9209','7456','9975'];
 const protocolPhotos=protocolOrder.map(id=>photos.find(photo=>photo.src.includes(id))).filter(Boolean);
 const motionPreference=window.matchMedia('(prefers-reduced-motion: reduce)');
 let protocolItems=[];
