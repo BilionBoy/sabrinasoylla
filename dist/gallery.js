@@ -1,20 +1,5 @@
 window.SABRINA_GALLERY = [
   {
-    "src": "assets/photos/IMG_5981.webp",
-    "title": "Lipo de papada",
-    "category": "papada"
-  },
-  {
-    "src": "assets/photos/IMG_5982.webp",
-    "title": "Lipo de papada",
-    "category": "papada"
-  },
-  {
-    "src": "assets/photos/IMG_5651.webp",
-    "title": "Lipo de papada",
-    "category": "papada"
-  },
-  {
     "src": "assets/photos/IMG_9208.webp",
     "title": "Harmonização facial",
     "category": "harmonizacao"
@@ -136,6 +121,60 @@ window.SABRINA_GALLERY = [
   },
   {
     "src": "assets/photos/IMG_9620.JPG%20%281%29.jpeg",
+    "title": "Harmonização facial",
+    "category": "harmonizacao"
+  },
+  {
+    "src": "assets/photos/IMG_5981.webp",
+    "title": "Lipo de papada",
+    "category": "papada"
+  },
+  {
+    "src": "assets/photos/IMG_5982.webp",
+    "title": "Lipo de papada",
+    "category": "papada"
+  }
+];
+
+// Seleção independente para a primeira seção, na ordem aprovada.
+window.SABRINA_PROTOCOLS = [
+  {
+    "src": "assets/photos/IMG_9207.webp",
+    "title": "Harmonização facial",
+    "category": "harmonizacao"
+  },
+  {
+    "src": "assets/photos/IMG_6782.JPEG",
+    "title": "Full face estratégico",
+    "category": "harmonizacao"
+  },
+  {
+    "src": "assets/photos/IMG_5651.webp",
+    "title": "Lipo de papada",
+    "category": "papada"
+  },
+  {
+    "src": "assets/photos/IMG_1439%20%281%29.JPEG",
+    "title": "Harmonização facial",
+    "category": "harmonizacao"
+  },
+  {
+    "src": "assets/photos/IMG_8542.webp",
+    "title": "Botox",
+    "category": "botox"
+  },
+  {
+    "src": "assets/photos/IMG_6790%20%281%29.JPEG",
+    "title": "Preenchimento labial",
+    "category": "labios"
+  },
+  {
+    "src": "assets/photos/IMG_9209.webp",
+    "title": "Rinomodelação",
+    "category": "rinomodelacao"
+  },
+  {
+    "src": "assets/photos/IMG_9975%20%281%29.JPEG",
     "title": "Harmonização facial",
     "category": "harmonizacao"
   }
