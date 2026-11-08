@@ -1,5 +1,20 @@
 window.SABRINA_GALLERY = [
   {
+    "src": "assets/photos/IMG_5981.webp",
+    "title": "Lipo de papada",
+    "category": "papada"
+  },
+  {
+    "src": "assets/photos/IMG_5982.webp",
+    "title": "Lipo de papada",
+    "category": "papada"
+  },
+  {
+    "src": "assets/photos/IMG_5651.webp",
+    "title": "Lipo de papada",
+    "category": "papada"
+  },
+  {
     "src": "assets/photos/IMG_9208.webp",
     "title": "Harmonização facial",
     "category": "harmonizacao"
@@ -28,11 +43,6 @@ window.SABRINA_GALLERY = [
     "src": "assets/photos/IMG_8542.webp",
     "title": "Botox",
     "category": "botox"
-  },
-  {
-    "src": "assets/photos/IMG_7456.JPG%20%281%29.jpeg",
-    "title": "Botox para Sorriso Gengival",
-    "category": "sorriso"
   },
   {
     "src": "assets/photos/IMG_9209.webp",
@@ -86,16 +96,6 @@ window.SABRINA_GALLERY = [
   },
   {
     "src": "assets/photos/IMG_5980.JPEG",
-    "title": "Harmonização facial",
-    "category": "harmonizacao"
-  },
-  {
-    "src": "assets/photos/IMG_5981.JPEG",
-    "title": "Harmonização facial",
-    "category": "harmonizacao"
-  },
-  {
-    "src": "assets/photos/IMG_5982.JPEG",
     "title": "Harmonização facial",
     "category": "harmonizacao"
   },
