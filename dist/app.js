@@ -2,7 +2,7 @@
 const config=window.SABRINA_CONFIG||{};
 const instagram='https://www.instagram.com/'+encodeURIComponent(config.instagram||'drasabrinasoylla')+'/';
 const phone=String(config.whatsapp||'').replace(/\D/g,'');
-const contact=phone?'https://wa.me/'+phone+'?text='+encodeURIComponent(config.message||'Olá! Gostaria de agendar uma avaliação.'):instagram;
+const contact=phone?'https://wa.me/'+phone+'?text='+encodeURIComponent(config.message||'Olá, gostaria de mais informações!'):instagram;
 document.querySelectorAll('[data-contact]').forEach(a=>{a.href=contact;a.target='_blank';a.rel='noopener noreferrer';});
 document.querySelectorAll('[data-instagram]').forEach(a=>a.href=instagram);
 if(phone){const el=document.getElementById('phone-display');const a=document.createElement('a');a.href=contact;a.textContent='+55 69 99269-2567';a.target='_blank';a.rel='noopener noreferrer';el.append(a);el.hidden=false;}

@@ -4,5 +4,5 @@ window.SABRINA_CONFIG = {
   whatsapp: '5569992692567',
   instagram: 'drasabrinasoylla',
   cro: '',
-  message: 'Olá! Gostaria de agendar uma avaliação com a Dra. Sabrina Soylla.'
+  message: 'Olá, gostaria de mais informações!'
 };
